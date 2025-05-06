@@ -1,0 +1,62 @@
+﻿  dllmain.cpp
+C:\Users\Tyler Kennett\Documents\GitHub\OGS-19.10\OGS-S18\SDK\SDK\Engine_structs.hpp(4004,2): warning C4309: 'initializing': truncation of constant value
+  (compiling source file 'dllmain.cpp')
+  
+C:\Users\Tyler Kennett\Documents\GitHub\OGS-19.10\OGS-S18\SDK\SDK\Engine_structs.hpp(4004,2): warning C4369: 'SDK::ESkinCacheUsage::ESkinCacheUsage_MAX':  enumerator value '256' cannot be represented as 'unsigned char', value is '256'
+  (compiling source file 'dllmain.cpp')
+  
+C:\Users\Tyler Kennett\Documents\GitHub\OGS-19.10\OGS-S18\SDK\SDK\Engine_structs.hpp(4499,2): warning C4309: 'initializing': truncation of constant value
+  (compiling source file 'dllmain.cpp')
+  
+C:\Users\Tyler Kennett\Documents\GitHub\OGS-19.10\OGS-S18\SDK\SDK\Engine_structs.hpp(4499,2): warning C4369: 'SDK::ESoundWaveLoadingBehavior::ESoundWaveLoadingBehavior_MAX':  enumerator value '256' cannot be represented as 'unsigned char', value is '256'
+  (compiling source file 'dllmain.cpp')
+  
+C:\Users\Tyler Kennett\Documents\GitHub\OGS-19.10\OGS-S18\SDK\SDK\FortniteGame_structs.hpp(4701,2): warning C4309: 'initializing': truncation of constant value
+  (compiling source file 'dllmain.cpp')
+  
+C:\Users\Tyler Kennett\Documents\GitHub\OGS-19.10\OGS-S18\SDK\SDK\FortniteGame_structs.hpp(4701,2): warning C4369: 'SDK::ELootElementType::ELootElementType_MAX':  enumerator value '256' cannot be represented as 'unsigned char', value is '256'
+  (compiling source file 'dllmain.cpp')
+  
+C:\Users\Tyler Kennett\Documents\GitHub\OGS-19.10\OGS-S18\SDK\SDK\FortniteGame_structs.hpp(9033,2): warning C4309: 'initializing': truncation of constant value
+  (compiling source file 'dllmain.cpp')
+  
+C:\Users\Tyler Kennett\Documents\GitHub\OGS-19.10\OGS-S18\SDK\SDK\FortniteGame_structs.hpp(9033,2): warning C4369: 'SDK::EFortMinigameClassSlot::EFortMinigameClassSlot_MAX':  enumerator value '256' cannot be represented as 'unsigned char', value is '256'
+  (compiling source file 'dllmain.cpp')
+  
+C:\Users\Tyler Kennett\Documents\GitHub\OGS-19.10\OGS-S18\SDK\SDK\FortniteGame_structs.hpp(11840,2): warning C4309: 'initializing': truncation of constant value
+  (compiling source file 'dllmain.cpp')
+  
+C:\Users\Tyler Kennett\Documents\GitHub\OGS-19.10\OGS-S18\SDK\SDK\FortniteGame_structs.hpp(11840,2): warning C4369: 'SDK::ECraftingUpgradeDataFlags::ECraftingUpgradeDataFlags_MAX':  enumerator value '256' cannot be represented as 'unsigned char', value is '256'
+  (compiling source file 'dllmain.cpp')
+  
+C:\Users\Tyler Kennett\Documents\GitHub\OGS-19.10\OGS-S18\SDK\SDK\Niagara_structs.hpp(377,2): warning C4309: 'initializing': truncation of constant value
+  (compiling source file 'dllmain.cpp')
+  
+C:\Users\Tyler Kennett\Documents\GitHub\OGS-19.10\OGS-S18\SDK\SDK\Niagara_structs.hpp(377,2): warning C4369: 'SDK::ENDISkeletalMesh_SkinningMode::ENDISkeletalMesh_MAX':  enumerator value '256' cannot be represented as 'unsigned char', value is '256'
+  (compiling source file 'dllmain.cpp')
+  
+C:\Users\Tyler Kennett\Documents\GitHub\OGS-19.10\OGS-S18\SDK\SDK\HeadMountedDisplay_structs.hpp(72,2): warning C4309: 'initializing': truncation of constant value
+  (compiling source file 'dllmain.cpp')
+  
+C:\Users\Tyler Kennett\Documents\GitHub\OGS-19.10\OGS-S18\SDK\SDK\HeadMountedDisplay_structs.hpp(72,2): warning C4369: 'SDK::EXRTrackedDeviceType::EXRTrackedDeviceType_MAX':  enumerator value '256' cannot be represented as 'unsigned char', value is '256'
+  (compiling source file 'dllmain.cpp')
+  
+C:\Users\Tyler Kennett\Documents\GitHub\OGS-19.10\OGS-S18\gamemode.h(95,42): warning C4267: 'argument': conversion from 'size_t' to 'UC::int32', possible loss of data
+  (compiling source file 'dllmain.cpp')
+  
+C:\Users\Tyler Kennett\Documents\GitHub\OGS-19.10\OGS-S18\Abilities.h(20,77): warning C4267: 'argument': conversion from 'size_t' to 'UC::int32', possible loss of data
+  (compiling source file 'dllmain.cpp')
+  
+C:\Users\Tyler Kennett\Documents\GitHub\OGS-19.10\OGS-S18\Abilities.h(30,40): warning C4267: 'argument': conversion from 'size_t' to 'UC::int32', possible loss of data
+  (compiling source file 'dllmain.cpp')
+  
+C:\Users\Tyler Kennett\Documents\GitHub\OGS-19.10\OGS-S18\Abilities.h(31,45): warning C4267: 'argument': conversion from 'size_t' to 'UC::int32', possible loss of data
+  (compiling source file 'dllmain.cpp')
+  
+LINK : warning LNK4098: defaultlib 'LIBCMTD' conflicts with use of other libs; use /NODEFAULTLIB:library
+  Generating code
+  3 of 474 functions ( 0.6%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    9 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  OGS-S18.vcxproj -> C:\Users\Tyler Kennett\Documents\GitHub\OGS-19.10\x64\Release\OGS-S18.dll
