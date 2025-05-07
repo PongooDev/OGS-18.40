@@ -143,6 +143,7 @@
     <ClInclude Include="Abilities.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="gamemode.h" />
+    <ClInclude Include="Inventory.h" />
     <ClInclude Include="Misc.h" />
     <ClInclude Include="Net.h" />
     <ClInclude Include="PC.h" />

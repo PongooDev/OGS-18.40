@@ -23,12 +23,11 @@ void LoadWorld() {
 void Hook() {
     GameMode::Hook();
     Net::Hook();
-    Tick::Hook();
     PC::Hook();
     Abilities::Hook();
-
     PE::Hook();
     Misc::Hook();
+    Tick::Hook();
 
     Sleep(1000);
     MH_EnableHook(MH_ALL_HOOKS);

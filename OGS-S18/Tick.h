@@ -2,8 +2,10 @@
 #include "framework.h"
 
 namespace Tick {
-	inline void (*TickFlushOG)(UNetDriver* Driver, float DeltaSeconds);
-	inline void TickFlush(UNetDriver* Driver, float DeltaSeconds)
+	void (*ServerReplicateActors)(void*) = decltype(ServerReplicateActors)(ImageBase + 0x3fd2b1c);
+
+	inline void (*TickFlushOG)(UNetDriver*, float);
+	void TickFlush(UNetDriver* Driver, float DeltaTime)
 	{
 		if (!Driver)
 			return;
@@ -13,11 +15,12 @@ namespace Tick {
 			Log("ReplicationDriver Doesent Exist!");
 		}
 
-		static void (*ServerReplicateActors)(void*) = decltype(ServerReplicateActors)(ImageBase + 0x3fd2b1c);
-		if (Driver->ReplicationDriver && Driver->ClientConnections.Num() > 0)
-			ServerReplicateActors(Driver->ReplicationDriver);
+		/*if (Driver && Driver->ClientConnections.Num() > 0 && Driver->ReplicationDriver)
+			ServerReplicateActors(Driver->ReplicationDriver);*/
 
-		return TickFlushOG(Driver, DeltaSeconds);
+		ServerReplicateActors(Driver->ReplicationDriver);
+		
+		return TickFlushOG(Driver, DeltaTime);
 	}
 
 
@@ -27,8 +30,8 @@ namespace Tick {
 	}
 
 	void Hook() {
-		MH_CreateHook((LPVOID)(ImageBase + 0xd122e0), TickFlush, (LPVOID*)&TickFlushOG);
 		MH_CreateHook((LPVOID)(ImageBase + 0xe976cc), GetMaxTickRate, nullptr);
+		MH_CreateHook((LPVOID)(ImageBase + 0xd122e0), TickFlush, (LPVOID*)&TickFlushOG);
 
 		Log("Tick Hooked!");
 	}

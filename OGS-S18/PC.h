@@ -1,6 +1,7 @@
 #pragma once
 #include "framework.h"
 #include "Abilities.h"
+#include "Inventory.h"
 
 namespace PC {
 	inline void (*ServerLoadingScreenDroppedOG)(AFortPlayerControllerAthena* PC);
@@ -14,13 +15,9 @@ namespace PC {
 		AFortGameModeAthena* GameMode = (AFortGameModeAthena*)UWorld::GetWorld()->AuthorityGameMode;
 		auto Pawn = (AFortPlayerPawn*)PC->Pawn;
 
-		Abilities::InitAbilitiesForPlayer(PC);
-
-		PC->XPComponent->bRegisteredWithQuestManager = true;
-		//PC->XPComponent->OnRep_bRegisteredWithQuestManager(); OnRep functions are cooking the gs for some reason?!
-
-		PlayerState->SeasonLevelUIDisplay = PC->XPComponent->CurrentLevel;
-		//PlayerState->OnRep_SeasonLevelUIDisplay();
+		if (!PlayerState || !GameState || !GameMode || !Pawn) {
+			return ServerLoadingScreenDroppedOG(PC);
+		}
 
 		return ServerLoadingScreenDroppedOG(PC);
 	}

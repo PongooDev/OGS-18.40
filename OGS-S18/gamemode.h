@@ -1,5 +1,7 @@
 #pragma once
 #include "framework.h"
+#include "Abilities.h"
+#include "Inventory.h"
 
 namespace GameMode {
 	inline bool (*ReadyToStartMatchOG)(AFortGameModeAthena* GameMode);
@@ -148,7 +150,33 @@ namespace GameMode {
 
 	inline APawn* SpawnDefaultPawnFor(AFortGameMode* GameMode, AFortPlayerController* Player, AActor* StartingLoc)
 	{
+		AFortPlayerControllerAthena* PC = (AFortPlayerControllerAthena*)Player;
+		AFortPlayerStateAthena* PlayerState = (AFortPlayerStateAthena*)PC->PlayerState;
+		AFortGameStateAthena* GameState = (AFortGameStateAthena*)UWorld::GetWorld()->GameState;
+		auto Pawn = (AFortPlayerPawn*)PC->Pawn;
+
 		FTransform Transform = StartingLoc->GetTransform();
+
+		Abilities::InitAbilitiesForPlayer(PC);
+
+		PC->XPComponent->bRegisteredWithQuestManager = true;
+		PC->XPComponent->OnRep_bRegisteredWithQuestManager();
+
+		PlayerState->SeasonLevelUIDisplay = PC->XPComponent->CurrentLevel;
+		PlayerState->OnRep_SeasonLevelUIDisplay();
+
+		UFortKismetLibrary::UpdatePlayerCustomCharacterPartsVisualization(PlayerState);
+		PlayerState->OnRep_CharacterData();
+
+		UFortWeaponMeleeItemDefinition* PickDef = StaticLoadObject<UFortWeaponMeleeItemDefinition>("/Game/Athena/Items/Weapons/WID_Harvest_Pickaxe_Athena_C_T01.WID_Harvest_Pickaxe_Athena_C_T01");
+		if (PickDef) {
+			Log("Pick Does Exist!");
+			Inventory::GiveItem(PC, PickDef, 1, 0);
+		}
+		else {
+			Log("Pick Doesent Exist!");
+		}
+
 		return (AFortPlayerPawnAthena*)GameMode->SpawnDefaultPawnAtTransform(Player, Transform);
 	}
 

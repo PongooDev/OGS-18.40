@@ -41,9 +41,6 @@ C:\Users\Tyler Kennett\Documents\GitHub\OGS-19.10\OGS-S18\SDK\SDK\HeadMountedDis
 C:\Users\Tyler Kennett\Documents\GitHub\OGS-19.10\OGS-S18\SDK\SDK\HeadMountedDisplay_structs.hpp(72,2): warning C4369: 'SDK::EXRTrackedDeviceType::EXRTrackedDeviceType_MAX':  enumerator value '256' cannot be represented as 'unsigned char', value is '256'
   (compiling source file 'dllmain.cpp')
   
-C:\Users\Tyler Kennett\Documents\GitHub\OGS-19.10\OGS-S18\gamemode.h(94,42): warning C4267: 'argument': conversion from 'size_t' to 'UC::int32', possible loss of data
-  (compiling source file 'dllmain.cpp')
-  
 C:\Users\Tyler Kennett\Documents\GitHub\OGS-19.10\OGS-S18\Abilities.h(20,77): warning C4267: 'argument': conversion from 'size_t' to 'UC::int32', possible loss of data
   (compiling source file 'dllmain.cpp')
   
@@ -53,9 +50,12 @@ C:\Users\Tyler Kennett\Documents\GitHub\OGS-19.10\OGS-S18\Abilities.h(30,40): wa
 C:\Users\Tyler Kennett\Documents\GitHub\OGS-19.10\OGS-S18\Abilities.h(31,45): warning C4267: 'argument': conversion from 'size_t' to 'UC::int32', possible loss of data
   (compiling source file 'dllmain.cpp')
   
+C:\Users\Tyler Kennett\Documents\GitHub\OGS-19.10\OGS-S18\gamemode.h(96,42): warning C4267: 'argument': conversion from 'size_t' to 'UC::int32', possible loss of data
+  (compiling source file 'dllmain.cpp')
+  
 LINK : warning LNK4098: defaultlib 'LIBCMTD' conflicts with use of other libs; use /NODEFAULTLIB:library
   Generating code
-  2 of 477 functions ( 0.4%) were compiled, the rest were copied from previous compilation.
+  10 of 504 functions ( 2.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     1 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
