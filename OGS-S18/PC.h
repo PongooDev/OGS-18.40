@@ -5,6 +5,10 @@
 namespace PC {
 	inline void (*ServerLoadingScreenDroppedOG)(AFortPlayerControllerAthena* PC);
 	inline void ServerLoadingScreenDropped(AFortPlayerControllerAthena* PC) {
+		if (!PC) {
+			return ServerLoadingScreenDroppedOG(PC);
+		}
+
 		AFortPlayerStateAthena* PlayerState = (AFortPlayerStateAthena*)PC->PlayerState;
 		AFortGameStateAthena* GameState = (AFortGameStateAthena*)UWorld::GetWorld()->GameState;
 		AFortGameModeAthena* GameMode = (AFortGameModeAthena*)UWorld::GetWorld()->AuthorityGameMode;
@@ -31,6 +35,7 @@ namespace PC {
 			PC->ClientSetRotation(Rotation, true);
 			PC->MyFortPawn->BeginSkydiving(true);
 			PC->MyFortPawn->SetHealth(100);
+			PC->MyFortPawn->SetShield(0);
 		}
 	}
 
