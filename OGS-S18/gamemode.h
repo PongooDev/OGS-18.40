@@ -26,7 +26,6 @@ namespace GameMode {
 			GameState->OnRep_CurrentPlaylistInfo();
 
 			GameMode->CurrentPlaylistName = Playlist->PlaylistName;
-			//GameMode->bAlwaysDBNO = Playlist->MaxSquadSize > 1; might be our issue mr tech
 			GameMode->WarmupRequiredPlayerCount = 1;
 
 			GameMode->bDBNOEnabled = Playlist->MaxTeamSize > 1;

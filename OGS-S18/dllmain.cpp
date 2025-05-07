@@ -30,6 +30,7 @@ void Hook() {
     PE::Hook();
     Misc::Hook();
 
+    Sleep(1000);
     MH_EnableHook(MH_ALL_HOOKS);
 }
 
@@ -41,9 +42,8 @@ DWORD Main(LPVOID) {
     Hook();
 
     *(bool*)(InSDKUtils::GetImageBase() + 0x9c0af6b) = false; //GIsClient
-    //*(bool*)() = true; //GIsServer (Not Found Yet)
 
-    //Sleep(1000);
+    Sleep(1000);
     LoadWorld();
 
     return 0;
