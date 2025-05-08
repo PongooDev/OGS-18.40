@@ -148,7 +148,7 @@ namespace GameMode {
 		return false;
 	}
 
-	inline APawn* SpawnDefaultPawnFor(AFortGameMode* GameMode, AFortPlayerController* Player, AActor* StartingLoc)
+	inline APawn* SpawnDefaultPawnFor(AFortGameModeAthena* GameMode, AFortPlayerController* Player, AActor* StartingLoc)
 	{
 		AFortPlayerControllerAthena* PC = (AFortPlayerControllerAthena*)Player;
 		AFortPlayerStateAthena* PlayerState = (AFortPlayerStateAthena*)PC->PlayerState;
@@ -168,10 +168,28 @@ namespace GameMode {
 		UFortKismetLibrary::UpdatePlayerCustomCharacterPartsVisualization(PlayerState);
 		PlayerState->OnRep_CharacterData();
 
-		UFortWeaponMeleeItemDefinition* PickDef = StaticLoadObject<UFortWeaponMeleeItemDefinition>("/Game/Athena/Items/Weapons/WID_Harvest_Pickaxe_Athena_C_T01.WID_Harvest_Pickaxe_Athena_C_T01");
+		PlayerState->SquadId = PlayerState->TeamIndex - 2;
+		PlayerState->OnRep_SquadId();
+		PlayerState->OnRep_TeamIndex(0);
+		PlayerState->OnRep_PlayerTeam();
+		PlayerState->OnRep_PlayerTeamPrivate();
+
+		FGameMemberInfo Info{ -1, -1, -1 };
+		Info.MemberUniqueId = PlayerState->UniqueId;
+		Info.SquadId = PlayerState->SquadId;
+		Info.TeamIndex = PlayerState->TeamIndex;
+
+		GameState->GameMemberInfoArray.Members.Add(Info);
+
+		GameState->GameMemberInfoArray.MarkItemDirty(Info);
+
+		UAthenaPickaxeItemDefinition* PickDef;
+		FFortAthenaLoadout& CosmecticLoadoutPC = PC->CosmeticLoadoutPC;
+		PickDef = CosmecticLoadoutPC.Pickaxe != nullptr ? CosmecticLoadoutPC.Pickaxe : StaticLoadObject<UAthenaPickaxeItemDefinition>("/Game/Athena/Items/Weapons/WID_Harvest_Pickaxe_Athena_C_T01.WID_Harvest_Pickaxe_Athena_C_T01");
+		//UFortWeaponMeleeItemDefinition* PickDef = StaticLoadObject<UFortWeaponMeleeItemDefinition>("/Game/Athena/Items/Weapons/WID_Harvest_Pickaxe_Athena_C_T01.WID_Harvest_Pickaxe_Athena_C_T01");
 		if (PickDef) {
 			Log("Pick Does Exist!");
-			Inventory::GiveItem(PC, PickDef, 1, 0);
+			Inventory::GiveItem(PC, PickDef->WeaponDefinition, 1, 0);
 		}
 		else {
 			Log("Pick Doesent Exist!");

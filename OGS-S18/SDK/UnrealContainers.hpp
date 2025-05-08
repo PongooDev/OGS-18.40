@@ -8,9 +8,12 @@
 
 // Container implementations with iterators. See https://github.com/Fischsalat/UnrealContainers
 
+#include <Windows.h>
 #include <string>
 #include <stdexcept>
 #include <iostream>
+#include <functional>
+#include <basetsd.h>
 
 namespace UC
 {	
@@ -225,6 +228,10 @@ namespace UC
 		inline const ValueType& Value() const { return Second; }
 	};
 
+	static void* (*Realloc)(void* Ptr, SIZE_T Count, uint32 Alignment) = decltype(Realloc)(__int64(GetModuleHandleW(0)) + 0x197ebdc);
+
+	static void* (*FreeMem)(void* a1) = decltype(FreeMem)(__int64(GetModuleHandleW(0)) + 0xcedbc0);
+
 	template<typename ArrayElementType>
 	class TArray
 	{
@@ -267,14 +274,18 @@ namespace UC
 		inline const ArrayElementType& GetUnsafe(int32 Index) const { return Data[Index]; }
 
 	public:
+		inline void Reserve(int32 Count)
+		{
+			MaxElements = NumElements + Count;
+			Data = (ArrayElementType*)Realloc(Data, MaxElements * sizeof(ArrayElementType), 0);
+		}
 		/* Adds to the array if there is still space for one more element */
 		inline bool Add(const ArrayElementType& Element)
 		{
-			if (GetSlack() <= 0)
-				return false;
+			Reserve(1);
 
 			Data[NumElements] = Element;
-			NumElements++;
+			++NumElements;
 
 			return true;
 		}
@@ -295,11 +306,35 @@ namespace UC
 			return true;
 		}
 
+		inline bool RemoveSingle(const int Index)
+		{
+			if (Index < NumElements)
+			{
+				if (Index != NumElements - 1)
+					Data[Index] = Data[NumElements - 1];
+
+				--NumElements;
+
+				return true;
+			}
+			return false;
+		}
+
+		inline void Free() {
+			if (Data) {
+				FreeMem(Data);
+			}
+
+			Data = nullptr;
+			NumElements = 0;
+			MaxElements = 0;
+		}
+
 		inline void Clear()
 		{
 			NumElements = 0;
 
-			if (Data)
+			if (!Data)
 				memset(Data, 0, NumElements * ElementSize);
 		}
 

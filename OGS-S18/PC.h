@@ -6,19 +6,6 @@
 namespace PC {
 	inline void (*ServerLoadingScreenDroppedOG)(AFortPlayerControllerAthena* PC);
 	inline void ServerLoadingScreenDropped(AFortPlayerControllerAthena* PC) {
-		if (!PC) {
-			return ServerLoadingScreenDroppedOG(PC);
-		}
-
-		AFortPlayerStateAthena* PlayerState = (AFortPlayerStateAthena*)PC->PlayerState;
-		AFortGameStateAthena* GameState = (AFortGameStateAthena*)UWorld::GetWorld()->GameState;
-		AFortGameModeAthena* GameMode = (AFortGameModeAthena*)UWorld::GetWorld()->AuthorityGameMode;
-		auto Pawn = (AFortPlayerPawn*)PC->Pawn;
-
-		if (!PlayerState || !GameState || !GameMode || !Pawn) {
-			return ServerLoadingScreenDroppedOG(PC);
-		}
-
 		return ServerLoadingScreenDroppedOG(PC);
 	}
 

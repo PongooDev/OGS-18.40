@@ -24,6 +24,7 @@ void Hook() {
     GameMode::Hook();
     Net::Hook();
     PC::Hook();
+    Inventory::Hook();
     Abilities::Hook();
     PE::Hook();
     Misc::Hook();

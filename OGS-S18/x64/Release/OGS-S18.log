@@ -50,13 +50,25 @@ C:\Users\Tyler Kennett\Documents\GitHub\OGS-19.10\OGS-S18\Abilities.h(30,40): wa
 C:\Users\Tyler Kennett\Documents\GitHub\OGS-19.10\OGS-S18\Abilities.h(31,45): warning C4267: 'argument': conversion from 'size_t' to 'UC::int32', possible loss of data
   (compiling source file 'dllmain.cpp')
   
+C:\Users\Tyler Kennett\Documents\GitHub\OGS-19.10\OGS-S18\Inventory.h(38,57): warning C4267: 'argument': conversion from 'size_t' to 'UC::int32', possible loss of data
+  (compiling source file 'dllmain.cpp')
+  
+C:\Users\Tyler Kennett\Documents\GitHub\OGS-19.10\OGS-S18\Inventory.h(41,69): warning C4267: 'argument': conversion from 'size_t' to 'UC::int32', possible loss of data
+  (compiling source file 'dllmain.cpp')
+  
+C:\Users\Tyler Kennett\Documents\GitHub\OGS-19.10\OGS-S18\Inventory.h(43,118): warning C4267: 'argument': conversion from 'size_t' to 'UC::int32', possible loss of data
+  (compiling source file 'dllmain.cpp')
+  
+C:\Users\Tyler Kennett\Documents\GitHub\OGS-19.10\OGS-S18\Inventory.h(44,73): warning C4267: 'argument': conversion from 'size_t' to 'UC::int32', possible loss of data
+  (compiling source file 'dllmain.cpp')
+  
 C:\Users\Tyler Kennett\Documents\GitHub\OGS-19.10\OGS-S18\gamemode.h(96,42): warning C4267: 'argument': conversion from 'size_t' to 'UC::int32', possible loss of data
   (compiling source file 'dllmain.cpp')
   
 LINK : warning LNK4098: defaultlib 'LIBCMTD' conflicts with use of other libs; use /NODEFAULTLIB:library
   Generating code
-  10 of 504 functions ( 2.0%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+  10 of 538 functions ( 1.9%) were compiled, the rest were copied from previous compilation.
+    4 functions were new in current compilation
+    4 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   OGS-S18.vcxproj -> C:\Users\Tyler Kennett\Documents\GitHub\OGS-19.10\x64\Release\OGS-S18.dll
